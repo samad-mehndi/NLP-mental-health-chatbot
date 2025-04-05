@@ -1,0 +1,22 @@
+{
+  "name": "nlp-mental-health-chatbot",
+  "version": "1.0.0",
+  "description": "The **Mental Health Support Chatbot** is a web-based application designed to provide empathetic conversations, self-help strategies, and links to verified mental health resources. This chatbot leverages **React** for the frontend and **NLP models** like **GPT-3.5** for generating supportive responses, and **DistilBERT** for sentiment and intent classification. It assists users in managing stress, anxiety, and emotional well-being while avoiding medical advice or crisis intervention. If needed, the chatbot redirects users to trusted organizations (e.g., **WHO**, **NIMH**) in case of emergencies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.2",
+    "nodemon": "^3.1.9"
+  }
+}
