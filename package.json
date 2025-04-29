@@ -1,22 +1,27 @@
 {
   "name": "nlp-mental-health-chatbot",
-  "version": "1.0.0",
-  "description": "The **Mental Health Support Chatbot** is a web-based application designed to provide empathetic conversations, self-help strategies, and links to verified mental health resources. This chatbot leverages **React** for the frontend and **NLP models** like **GPT-3.5** for generating supportive responses, and **DistilBERT** for sentiment and intent classification. It assists users in managing stress, anxiety, and emotional well-being while avoiding medical advice or crisis intervention. If needed, the chatbot redirects users to trusted organizations (e.g., **WHO**, **NIMH**) in case of emergencies.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
   "dependencies": {
-    "bcryptjs": "^3.0.2",
-    "cookie-parser": "^1.4.7",
-    "dotenv": "^16.4.7",
-    "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.13.2",
-    "nodemon": "^3.1.9"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "vite": "^6.3.1"
   }
 }
