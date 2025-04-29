@@ -1,42 +1,159 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Root Settings for Purple Color Scheme */
+:root {
+  font-family: 'Segoe UI', Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #f4f4f9; /* Light off-white for text */
+  background-color: #e8d9f2; /* Soft lavender background */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #9b66e7; /* Light purple for links */
+  text-decoration: none;
+}
+a:hover {
+  color: #7b4fca; /* Darker purple on hover */
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  font-size: 16px; /* Ensure readability */
+}
+
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+button {
+  border-radius: 12px;
+  border: none;
+  padding: 0.75em 1.25em;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #9b66e7; /* Purple background for buttons */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+button:hover {
+  background-color: #7b4fca; /* Darker purple on hover */
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px solid #c1a1e9;
+  outline-offset: 2px;
+}
+
+/* Chat Container */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 600px; /* Max width for chat */
+  height: 80vh; /* Make the chat take up 80% of the screen height */
+  background-color: #ffffff; /* Light white background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: auto; /* Make chat scrollable */
+  gap: 10px;
+}
+
+.chat-header {
+  font-size: 1.8rem;
+  font-weight: bold;
   text-align: center;
+  margin-bottom: 15px;
+  color: #7b4fca; /* Purple for header */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto; /* Ensure chat messages are scrollable */
+  max-height: 100%; /* Fill the remaining space in the container */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* User & Bot Messages Styling */
+.chat-message {
+  padding: 12px;
+  border-radius: 12px;
+  max-width: 80%;
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+.chat-message.user {
+  background-color: #c1a1e9; /* Lighter purple for user messages */
+  align-self: flex-end; /* Position user messages to the right */
+}
+
+.chat-message.bot {
+  background-color: #e5d3f7; /* Lighter lavender for bot messages */
+  align-self: flex-start; /* Position bot messages to the left */
+}
+
+.chat-input-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.chat-submit {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  background-color: #9b66e7; /* Purple for submit button */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.chat-submit:hover {
+  background-color: #7b4fca;
+}
+
+.chat-submit:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #ffffff;
+    background-color: #121212;
   }
-  to {
-    transform: rotate(360deg);
+  button {
+    background-color: #2d2d2d;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  button:hover {
+    background-color: #444;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

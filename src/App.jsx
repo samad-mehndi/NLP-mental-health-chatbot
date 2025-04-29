@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
+import './index.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [messages, setMessages] = useState([]);
+  const [userInput, setUserInput] = useState('');
+
+  // Add greeting message when the component is mounted
+  useEffect(() => {
+    const initialMessage = {
+      sender: 'bot',
+      text: 'Automated Greeting message.', // Greeting message
+    };
+    setMessages([initialMessage]);
+  }, []);
+
+  const handleSendMessage = () => {
+    if (userInput.trim()) {
+      setMessages([
+        ...messages,
+        { sender: 'user', text: userInput },
+        { sender: 'bot', text: 'This is an automated response.' }, // You can replace this with actual bot logic
+      ]);
+      setUserInput('');
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault(); // Prevent default behavior (line break)
+      handleSendMessage();
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="chat-container">
+      <div className="chat-header">Mental Health Chatbot</div>
+      <div className="chat-box">
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`chat-message ${msg.sender === 'user' ? 'user' : 'bot'}`}
+          >
+            {msg.text}
+          </div>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <div className="chat-input-container">
+        <textarea
+          className="chat-input"
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Type your message..."
+        />
+        <button className="chat-submit" onClick={handleSendMessage}>
+          Send
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
