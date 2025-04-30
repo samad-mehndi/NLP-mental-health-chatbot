@@ -10,17 +10,25 @@ function App() {
   useEffect(() => {
     const initialMessage = {
       sender: 'bot',
-      text: 'Automated Greeting message.', // Greeting message
+      text: 'Automated Greeting message.',
     };
     setMessages([initialMessage]);
   }, []);
+
+  // Auto-scroll to bottom when messages update
+  useEffect(() => {
+    const endDiv = document.getElementById('end-of-chat');
+    if (endDiv) {
+      endDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   const handleSendMessage = () => {
     if (userInput.trim()) {
       setMessages([
         ...messages,
         { sender: 'user', text: userInput },
-        { sender: 'bot', text: 'This is an automated response.' }, // You can replace this with actual bot logic
+        { sender: 'bot', text: 'This is an automated response.' },
       ]);
       setUserInput('');
     }
@@ -28,7 +36,7 @@ function App() {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' && !event.shiftKey) {
-      event.preventDefault(); // Prevent default behavior (line break)
+      event.preventDefault();
       handleSendMessage();
     }
   };
@@ -45,6 +53,7 @@ function App() {
             {msg.text}
           </div>
         ))}
+        <div id="end-of-chat" />
       </div>
       <div className="chat-input-container">
         <textarea
