@@ -22,3 +22,39 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Compiled files
+*.pyc
+__pycache__/
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Cache & logs
+*.log
+*.db
+*.sqlite3
+
+# Model artifacts
+*.pt
+*.bin
+*.ckpt
+
+# HuggingFace Trainer artifacts
+trainer_state.json
+training_args.bin
+checkpoint-*/
+model.safetensors
+
+# VSCode project settings
+.vscode/
+
+# OS-generated
+.DS_Store
+Thumbs.db
+package-lock.json
+
+data.csv
+
