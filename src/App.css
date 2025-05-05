@@ -65,7 +65,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 100%;
+  width: 100vw;
   max-width: 600px; /* Max width for chat */
   height: 80vh; /* Make the chat take up 80% of the screen height */
   background-color: #ffffff; /* Light white background */
@@ -102,12 +102,12 @@ button:focus-visible {
 }
 
 .chat-message.user {
-  background-color: #c1a1e9; /* Lighter purple for user messages */
+  background-color: #0b0710; /* Lighter purple for user messages */
   align-self: flex-end; /* Position user messages to the right */
 }
 
 .chat-message.bot {
-  background-color: #e5d3f7; /* Lighter lavender for bot messages */
+  background-color: #130d18; /* Lighter lavender for bot messages */
   align-self: flex-start; /* Position bot messages to the left */
 }
 

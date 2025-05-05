@@ -57,4 +57,5 @@ Thumbs.db
 package-lock.json
 
 data.csv
+app/data_with_embeddings1.pkl
 
