@@ -1,7 +1,7 @@
 # NLP Mental Health Chatbot
 ## Demo Link
 - **(https://www.youtube.com/watch?v=bWrb6nlwzFs)**
-- 
+  
 ## Overview
 The **Mental Health Support Chatbot** is a web-based application designed to provide empathetic conversations, self-help strategies, and links to verified mental health resources. This chatbot leverages **React** for the frontend and **NLP models** like **GPT-3.5** for generating supportive responses, and **DistilBERT** for sentiment and intent classification. It assists users in managing stress, anxiety, and emotional well-being while avoiding medical advice or crisis intervention. If needed, the chatbot redirects users to trusted organizations (e.g., **WHO**, **NIMH**) in case of emergencies.
 
