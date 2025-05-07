@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     const initialMessage = {
       sender: "bot",
-      text: "Automated Greeting message.", // Greeting message
+      text: "Hello! I'm here to offer support and a safe space to talk. Please note that while I can help you process your thoughts, I'm not a substitute for professional mental health care.", // Greeting message
     };
     setMessages([initialMessage]);
   }, []);

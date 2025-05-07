@@ -12,7 +12,7 @@ embedder = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Set HuggingFace to use offline mode explicitly
 os.environ['TRANSFORMERS_OFFLINE'] = '1'
-model_path = "mh_classifier_root"
+model_path = "mental_health_classifier"
 
 # Load intent classifier
 tokenizer = AutoTokenizer.from_pretrained(str(model_path), local_files_only=True)
@@ -21,7 +21,7 @@ label_encoder = joblib.load("label_encoder.pkl")
 intent_labels = label_encoder.classes_
 
 # Load dataset with precomputed embeddings
-base_dir = Path(__file__).resolve().parent
+base_dir = Path(_file_).resolve().parent
 df = pd.read_pickle(base_dir / "data_with_embeddings1.pkl")
 
 # Ensure embeddings are tensors (if needed)
@@ -45,13 +45,15 @@ def generate_response(user_input: str) -> str:
     filtered_df = df[df["topic"] == predicted_intent]
 
     if filtered_df.empty:
-        return "I'm here to listen. Can you tell me more?"
+        return "I'm here to listen. Tell me more?"
 
     similarities = [util.pytorch_cos_sim(user_embedding, emb)[0][0].item() for emb in filtered_df["embeddings"]]
     best_idx = torch.tensor(similarities).argmax().item()
     best_score = similarities[best_idx]
 
-    if best_score < 0.4:
-        return "I'm here to listen. Can you tell me more?"
+    if best_score < 0.4 and best_score > 0.2:
+        return "I'm here to listen. Tell me more?"
+    elif best_score < 0.2:
+        return "I don't understand. Can you be a bit more specific if you are facing an emotional problem?"
 
     return filtered_df.iloc[best_idx]["answerText"]
