@@ -7,7 +7,7 @@
 **YouTube Demo:** https://www.youtube.com/watch?v=bWrb6nlwzFs  
 
 ### Team Members:
-- **Nikita Kachane**  
+- **Nikita Kachane** (NetID: nsk230001)
 - **Samad Mehndi** (NetID: sxm230312)  
 - **Nikita Ramachandran** (NetID: nxr200026)  
 
